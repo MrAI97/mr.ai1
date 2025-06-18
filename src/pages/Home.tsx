@@ -15,83 +15,111 @@ function Home({ onBookCall }: HomeProps) {
 
   const services = [
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-7 h-7" />,
       title: "AI Phone System",
-      description: "Automate appointments and customer service with an intelligent virtual receptionist.",
+      description: "Automate appointments and customer service with an intelligent virtual receptionist that never sleeps.",
       link: "/services/phone-system"
     },
     {
-      icon: <Bot className="w-6 h-6" />,
+      icon: <Bot className="w-7 h-7" />,
       title: "Intelligent Chat Agents",
-      description: "Enhance customer support with AI-powered chat agents that understand and respond naturally.",
+      description: "Enhance customer support with AI-powered chat agents that understand context and respond naturally.",
       link: "/services/chat-agents"
     },
     {
-      icon: <Zap className="w-6 h-6" />,
+      icon: <Zap className="w-7 h-7" />,
       title: "Automation Tools",
-      description: "Streamline your workflow with intelligent automation solutions that save time and reduce errors.",
+      description: "Streamline workflows with intelligent automation solutions that eliminate repetitive tasks.",
       link: "/services/automation"
     },
     {
-      icon: <LineChart className="w-6 h-6" />,
+      icon: <LineChart className="w-7 h-7" />,
       title: "Data Analytics",
-      description: "Unlock valuable insights with advanced AI-driven analytics and data visualization.",
+      description: "Transform raw data into actionable insights with advanced AI-driven analytics and visualization.",
       link: "/services/analytics"
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
-      <div className="container mx-auto px-6 pt-32 pb-40">
-        <div className="max-w-4xl relative z-10">
-          <h1 className="text-7xl font-bold mb-8 leading-tight tracking-tighter">
-            <span className="typewriter inline-block">
-              AI-Driven Business Transformation
-            </span>
-          </h1>
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl tracking-wide leading-relaxed">
-            Transform your business operations with cutting-edge AI solutions. 
-            From intelligent chat agents to seamless automation and analytics.
-          </p>
-          <button
-            onClick={onBookCall}
-            className="glow-effect bg-white/5 px-8 py-4 rounded-lg text-lg font-semibold flex items-center space-x-3 hover:bg-white/10 transition-all border border-white/20 group"
-          >
-            <span className="tracking-wider">Start Your AI Journey</span>
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+      {/* Subtle background pattern */}
+      <div className="pattern-overlay"></div>
+      
+      <div className="container mx-auto px-8 pt-20 pb-32">
+        <div className="max-w-5xl relative z-10">
+          <div className="mb-12">
+            <h1 className="text-8xl font-bold mb-8 leading-tight tracking-tighter">
+              <span className="typewriter inline-block gradient-text">
+                AI-Driven Business Transformation
+              </span>
+            </h1>
+            <p className="text-2xl text-gray-300 mb-16 max-w-3xl tracking-wide leading-relaxed font-light">
+              Transform your business operations with cutting-edge AI solutions. 
+              From intelligent chat agents to seamless automation and deep analytics.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 mb-20">
+            <button
+              onClick={onBookCall}
+              className="glow-effect premium-button px-10 py-5 rounded-xl text-xl font-semibold flex items-center justify-center space-x-4 group"
+            >
+              <span className="tracking-wider">Start Your AI Journey</span>
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </button>
+            
+            <Link
+              to="/services/chat-agents"
+              className="glass-card px-10 py-5 rounded-xl text-xl font-medium flex items-center justify-center space-x-4 group transition-all"
+            >
+              <span className="tracking-wider text-gray-300">Explore Services</span>
+              <Bot className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+            </Link>
+          </div>
         </div>
         
-        {/* Spline Animation */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] -z-0 opacity-60">
-          <spline-viewer url="https://prod.spline.design/Sfijfv1-jrRrLl7P/scene.splinecode"></spline-viewer>
+        {/* Enhanced Spline Animation Container */}
+        <div className="absolute top-0 right-0 w-[900px] h-[900px] -z-0 opacity-50">
+          <div className="floating">
+            <spline-viewer url="https://prod.spline.design/Sfijfv1-jrRrLl7P/scene.splinecode"></spline-viewer>
+          </div>
         </div>
       </div>
 
       <div 
         ref={servicesRef}
-        className={`container mx-auto px-6 py-32 transition-all duration-1000 transform ${
+        className={`container mx-auto px-8 py-40 transition-all duration-1000 transform ${
           servicesInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}
       >
-        <h2 className="text-4xl font-bold mb-16 tracking-tight text-center">Our Services</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold mb-6 tracking-tight gradient-text">Our Services</h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Comprehensive AI solutions designed to revolutionize how you do business
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-8 rounded-2xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer border border-white/10 hover:border-white/20"
+              className="service-card glass-card group p-10 rounded-3xl cursor-pointer transition-all"
             >
-              <div className="mb-4 text-white group-hover:text-purple-400 transition-colors">
+              <div className="mb-6 text-white group-hover:text-purple-400 transition-colors transform group-hover:scale-110 transition-transform">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3 tracking-wide">{service.title}</h3>
-              <p className="text-gray-400 tracking-wide leading-relaxed mb-6">{service.description}</p>
+              <h3 className="text-2xl font-semibold mb-4 tracking-wide group-hover:text-white transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-gray-400 tracking-wide leading-relaxed mb-8 text-lg">
+                {service.description}
+              </p>
               <Link
                 to={service.link}
-                className="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors"
+                className="inline-flex items-center space-x-3 text-purple-400 hover:text-purple-300 transition-colors font-medium"
               >
                 <span>Learn More</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           ))}
