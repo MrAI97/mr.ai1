@@ -1,5 +1,4 @@
 import React from 'react';
-import { X } from 'lucide-react';
 
 interface BookingModalProps {
   onClose: () => void;
@@ -7,54 +6,42 @@ interface BookingModalProps {
 
 function BookingModal({ onClose }: BookingModalProps) {
   return (
-    <div className="fixed inset-0 bg-black/95 flex items-center justify-center p-6 z-50 backdrop-blur-xl">
-      <div className="glass-card p-10 rounded-3xl w-full max-w-lg relative">
+    <div className="fixed inset-0 bg-black/90 flex items-center justify-center p-6 z-50 backdrop-blur-lg">
+      <div className="bg-white/5 p-8 rounded-2xl w-full max-w-md relative border border-white/20">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+          className="absolute top-4 right-4 text-gray-400 hover:text-white"
         >
-          <X className="w-6 h-6" />
+          ✕
         </button>
-        
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-3 tracking-wider gradient-text">
-            Schedule a Consultation
-          </h2>
-          <p className="text-gray-400 text-lg">
-            Let's discuss how AI can transform your business
-          </p>
-        </div>
-        
-        <form className="space-y-6">
+        <h2 className="text-2xl font-bold mb-6 tracking-wider">Schedule a Consultation</h2>
+        <form className="space-y-4">
           <div>
-            <label className="block text-lg mb-3 tracking-wide font-medium">Name</label>
+            <label className="block text-sm mb-2 tracking-wide">Name</label>
             <input
               type="text"
-              className="w-full px-6 py-4 rounded-xl glass-card border-0 focus:ring-2 focus:ring-purple-400 outline-none tracking-wide text-lg transition-all"
+              className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 focus:border-purple-400 outline-none tracking-wide"
               placeholder="Your name"
             />
           </div>
-          
           <div>
-            <label className="block text-lg mb-3 tracking-wide font-medium">Email</label>
+            <label className="block text-sm mb-2 tracking-wide">Email</label>
             <input
               type="email"
-              className="w-full px-6 py-4 rounded-xl glass-card border-0 focus:ring-2 focus:ring-purple-400 outline-none tracking-wide text-lg transition-all"
+              className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 focus:border-purple-400 outline-none tracking-wide"
               placeholder="your@email.com"
             />
           </div>
-          
           <div>
-            <label className="block text-lg mb-3 tracking-wide font-medium">Message</label>
+            <label className="block text-sm mb-2 tracking-wide">Message</label>
             <textarea
-              className="w-full px-6 py-4 rounded-xl glass-card border-0 focus:ring-2 focus:ring-purple-400 outline-none h-40 tracking-wide text-lg resize-none transition-all"
-              placeholder="Tell us about your needs and goals..."
+              className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 focus:border-purple-400 outline-none h-32 tracking-wide"
+              placeholder="Tell us about your needs..."
             />
           </div>
-          
           <button
             type="submit"
-            className="w-full premium-button py-4 rounded-xl text-xl font-semibold tracking-wider transition-all"
+            className="w-full bg-white/5 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all border border-white/20 tracking-wider"
           >
             Send Message
           </button>
